@@ -509,7 +509,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
               {[
                 { name: 'กัลยาวดี ปัญญา', id: '671310399', role: 'Group Member' },
-                { name: 'เปรมสินี ทองปราน', id: '671310423', role: 'Group Member' },
+                { name: 'เปรมสินี ทองปาน', id: '671310423', role: 'Group Member' },
               ].map((member, idx) => (
                 <motion.div
                   key={idx}
