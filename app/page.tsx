@@ -7,7 +7,6 @@ import LogoImg from "./assets/logo.jpg";
 import Product1Img from "./assets/product1.jpg";
 import Product2Img from "./assets/product2.jpg";
 import StoryCraftImg from "./assets/story-craft.png";
-import FacebookIcon from "./assets/facebook-icon.svg";
 import InstagramIcon from "./assets/instagram-icon.svg";
 import TikTokIcon from "./assets/tiktok-icon-dark.svg";
 
@@ -135,7 +134,7 @@ export default function Home() {
             className="order-1 md:order-2"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-6 block">The Essence</span>
-            <h2 className="text-5xl md:text-7xl font-serif font-bold mb-12 text-primary tracking-tighter">ทำไมต้อง <span className="font-sans font-bold tracking-[0.1em] uppercase text-earth ml-4">Slow Sip?</span></h2>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold mb-12 text-primary tracking-tighter">ทำไมต้อง <span className="font-sans font-bold tracking-widest uppercase text-earth ml-4">Slow Sip?</span></h2>
 
             <div className="space-y-12">
               <div className="flex gap-8 group">
@@ -190,7 +189,7 @@ export default function Home() {
                     <h3 className="text-4xl font-serif font-bold mb-2">Yuzu Soju</h3>
                     <p className="text-primary font-bold tracking-widest text-xs uppercase">Premium Craft Blend</p>
                   </div>
-                  <p className="text-3xl font-serif font-bold text-primary">189 <span className="text-sm font-sans font-normal text-muted">THB</span></p>
+                  <p className="text-3xl font-serif font-bold text-primary">85 <span className="text-sm font-sans font-normal text-muted">THB</span></p>
                 </div>
                 <p className="text-muted mb-8 leading-relaxed font-light text-lg">
                   สัมผัสความสดชื่นจากส้มยูซุแท้ส่งตรงจากญี่ปุ่น ผสานความซ่าเล็กน้อยและความหวานละมุนจากธรรมชาติ ให้ความรู้สึกรีเฟรชในทุกการจิบ
@@ -242,7 +241,7 @@ export default function Home() {
                     <h3 className="text-4xl font-serif font-bold mb-2">Peach Tea Soju</h3>
                     <p className="text-accent-peach font-bold tracking-widest text-xs uppercase">Limited Reserve</p>
                   </div>
-                  <p className="text-3xl font-serif font-bold text-primary">189 <span className="text-sm font-sans font-normal text-muted">THB</span></p>
+                  <p className="text-3xl font-serif font-bold text-primary">85 <span className="text-sm font-sans font-normal text-muted">THB</span></p>
                 </div>
                 <p className="text-muted mb-8 leading-relaxed font-light text-lg">
                   ความลงตัวของใบชาคัดพิเศษและลูกพีชสีชมพูสุกงอม มอบรสสัมผัสที่นุ่มนวล หอมหวาน และผ่อนคลาย เหมาะสำหรับช่วงเวลาสุดพิเศษ
@@ -276,6 +275,84 @@ export default function Home() {
                 </Link>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* 4.5 Pricing Strategy - New Section and Grid Layout */}
+        <section className="py-32 bg-background relative overflow-hidden">
+          <div className="section-padding relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={premiumTransition}
+              className="text-center mb-24"
+            >
+              <h2 className="text-6xl md:text-8xl font-serif font-bold mb-6 text-primary tracking-tight">Pricing Strategy</h2>
+              <p className="text-xl text-muted font-light mb-4 text-center w-full">ราคาที่เข้าถึงง่าย ทั้งการสังสรรค์ส่วนตัวและเชิงพาณิชย์</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {[
+                {
+                  label: "RETAIL/ SINGLE",
+                  price: "85.-",
+                  detail: "ราคา/ขวด",
+                  accent: "bg-primary-light/10"
+                },
+                {
+                  label: "PACK 6",
+                  price: "480.-",
+                  detail: "ประหยัดกว่า 30 บาท",
+                  accent: "bg-accent-yuzu/20"
+                },
+                {
+                  label: "PACK 12",
+                  price: "900.-",
+                  detail: "ประหยัดกว่า 120 บาท",
+                  accent: "bg-accent-peach/20"
+                },
+                {
+                  label: "WHOLE SALE",
+                  price: "1,440.-",
+                  detail: "60.- / ขวด",
+                  accent: "bg-earth/10"
+                }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ ...premiumTransition, delay: idx * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="relative group overflow-hidden rounded-[3rem] bg-white border border-primary/5 p-12 shadow-sm hover:shadow-2xl transition-all duration-500"
+                >
+                  <div className="flex items-center justify-between gap-8 h-full">
+                    <div className="flex-1">
+                      <div className="text-5xl md:text-7xl font-serif font-bold text-primary mb-4">{item.price}</div>
+                      <div className="text-sm font-bold text-muted uppercase tracking-[0.2em]">{item.detail}</div>
+                    </div>
+
+                    <div className="h-20 w-px bg-primary/10 mx-4" />
+
+                    <div className={`p-8 rounded-4xl ${item.accent} flex-1 text-center`}>
+                      <span className="text-xl md:text-2xl font-bold tracking-widest text-primary">{item.label}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="text-center mt-16 text-[10px] font-bold text-muted uppercase tracking-[0.3em]"
+            >
+              *เงื่อนไขเป็นไปตามที่บริษัทกำหนด
+            </motion.p>
           </div>
         </section>
 
@@ -402,37 +479,37 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* 8. About Us (Group Members) */}
-        <section className="bg-cream/20 py-40 border-t border-primary/5">
-          <div className="section-padding">
-            <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+        {/* 8. About Us (Group Members) - Refined Compact Layout */}
+        <section className="bg-background py-20 relative overflow-hidden border-t border-primary/5">
+          <div className="absolute inset-0 bg-linear-to-b from-cream/10 via-transparent to-background" />
+
+          <div className="section-padding relative z-10 py-10">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8 max-w-5xl mx-auto border-b border-primary/5 pb-8">
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={premiumTransition}
               >
-                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-6 block">The Visionaries</span>
-                <h3 className="text-5xl md:text-7xl font-serif font-bold text-primary">ทีมผู้สร้างสรรค์</h3>
+                <span className="text-[8px] font-bold uppercase tracking-[0.5em] text-primary mb-4 block font-sans">The Creative Force</span>
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary tracking-tighter">ทีมผู้สร้างสรรค์</h3>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={premiumTransition}
-                className="text-right text-xs text-muted font-bold uppercase tracking-[0.2em]"
+                className="text-right text-[8px] text-muted font-bold uppercase tracking-[0.3em] font-sans"
               >
-                <p className="mb-2 text-primary">Art & Design Direction</p>
+                <p className="mb-2 text-primary opacity-80">Art & Design Direction</p>
                 <p>Course [CS101] | Instructor [Name]</p>
               </motion.div>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
               {[
-                { name: '[ชื่อ-นามสกุล 1]', id: 'XXXXXXX-1', role: 'Project Lead' },
-                { name: '[ชื่อ-นามสกุล 2]', id: 'XXXXXXX-2', role: 'Visual Strategy' },
-                { name: '[ชื่อ-นามสกุล 3]', id: 'XXXXXXX-3', role: 'Technical Director' },
-                { name: '[ชื่อ-นามสกุล 4]', id: 'XXXXXXX-4', role: 'Brand Identity' },
+                { name: 'กัลยาวดี ปัญญา', id: '671310399', role: 'Group Member' },
+                { name: 'เปรมสินี ทองปราน', id: '671310423', role: 'Group Member' },
               ].map((member, idx) => (
                 <motion.div
                   key={idx}
@@ -440,15 +517,24 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ ...premiumTransition, delay: idx * 0.1 }}
-                  className="p-10 rounded-[3.5rem] bg-white border border-primary/5 hover:border-primary/20 transition-all duration-700 hover:shadow-2xl group"
+                  whileHover={{ y: -8 }}
+                  className="w-full md:w-[calc(45%-1rem)] min-w-[280px] p-10 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_15px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-700 group hover:border-primary/10"
                 >
-                  <div className="w-16 h-16 rounded-3xl bg-primary-light/10 flex items-center justify-center text-primary font-serif font-bold text-2xl mb-8 group-hover:scale-110 transition-transform">
-                    {member.name.charAt(1)}
+                  <div className="relative mb-4 flex justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-earth/10 blur-xl transition-all" />
                   </div>
-                  <h4 className="text-2xl font-serif font-bold mb-2 text-primary">{member.name}</h4>
-                  <p className="text-[10px] text-earth font-bold mb-8 tracking-[0.2em] uppercase">ID: {member.id}</p>
-                  <div className="h-0.5 w-10 bg-primary/10 mb-8" />
-                  <p className="text-[9px] text-muted uppercase tracking-[0.3em] font-bold">{member.role}</p>
+
+                  <div className="space-y-3 text-center">
+                    <h4 className="text-xl md:text-2xl font-serif font-bold text-primary tracking-tight">{member.name}</h4>
+                    <p className="text-[10px] text-earth font-bold tracking-[0.3em] uppercase opacity-70">STUDENT ID: {member.id}</p>
+                  </div>
+
+                  <div className="h-px w-full bg-linear-to-r from-primary/10 to-transparent my-6" />
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-[8px] text-muted font-bold uppercase tracking-[0.4em] group-hover:text-primary transition-colors">{member.role}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/40 transition-colors" />
+                  </div>
                 </motion.div>
               ))}
             </div>
