@@ -478,89 +478,65 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
-
-        {/* 8. About Us (Group Members) - Refined Compact Layout */}
-        <section className="bg-background py-20 relative overflow-hidden border-t border-primary/5">
-          <div className="absolute inset-0 bg-linear-to-b from-cream/10 via-transparent to-background" />
-
-          <div className="section-padding relative z-10 py-10">
-            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8 max-w-5xl mx-auto border-b border-primary/5 pb-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={premiumTransition}
-              >
-                <span className="text-[8px] font-bold uppercase tracking-[0.5em] text-primary mb-4 block font-sans">The Creative Force</span>
-                <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary tracking-tighter">ทีมผู้สร้างสรรค์</h3>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={premiumTransition}
-                className="text-right text-[8px] text-muted font-bold uppercase tracking-[0.3em] font-sans"
-              >
-                <p className="mb-2 text-primary opacity-80">Art & Design Direction</p>
-                <p>Course [CS101] | Instructor [Name]</p>
-              </motion.div>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-              {[
-                { name: 'กัลยาวดี ปัญญา', id: '671310399', role: 'Group Member' },
-                { name: 'เปรมสินี ทองปาน', id: '671310423', role: 'Group Member' },
-              ].map((member, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ ...premiumTransition, delay: idx * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="w-full md:w-[calc(45%-1rem)] min-w-[280px] p-10 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_15px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-700 group hover:border-primary/10"
-                >
-                  <div className="relative mb-4 flex justify-center">
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-earth/10 blur-xl transition-all" />
-                  </div>
-
-                  <div className="space-y-3 text-center">
-                    <h4 className="text-xl md:text-2xl font-serif font-bold text-primary tracking-tight">{member.name}</h4>
-                    <p className="text-[10px] text-earth font-bold tracking-[0.3em] uppercase opacity-70">STUDENT ID: {member.id}</p>
-                  </div>
-
-                  <div className="h-px w-full bg-linear-to-r from-primary/10 to-transparent my-6" />
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-[8px] text-muted font-bold uppercase tracking-[0.4em] group-hover:text-primary transition-colors">{member.role}</span>
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary/40 transition-colors" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
-      {/* 9. Footer */}
-      <footer className="py-20 px-8 border-t border-primary/5 text-center bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
+      {/* 8. Unified Footer & Team Section */}
+      <footer className="bg-[#F8F8F8] pt-32 pb-20 px-8 border-t border-primary/5">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Team Info */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-all duration-700"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
           >
-            <Image src={LogoImg} alt="Slow Sip Logo" className="w-12 h-12 object-contain rounded-xl" />
-            <span className="font-bold tracking-[0.6em] text-sm text-primary">SLOW SIP</span>
+            <h2 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4 tracking-tight">About Our Team</h2>
+            <p className="text-lg font-medium text-neutral-800">วิชา 888107 – Business Startup on Digital Platforms</p>
           </motion.div>
 
-          <p className="text-xl font-serif italic text-muted max-w-2xl">
-            "ดื่มด่ำกับรสชาติ ละเมียดละไมกับช่วงเวลา ทุกการจิบคือความทรงจำที่ยืนยาว"
-          </p>
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 mb-32">
+            {[
+              { name: 'กัลยาวดี ปัญญา', id: '671310399', role: 'Product & Strategy' },
+              { name: 'เปรมสินี ทองปาน', id: '671310423', role: 'Platform & Marketing' },
+            ].map((member, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: idx * 0.2 }}
+                className="space-y-2"
+              >
+                <h4 className="text-2xl md:text-3xl font-bold flex flex-wrap justify-center gap-x-3 gap-y-1">
+                  <span className="text-[#C5A059]">{member.name}</span>
+                  <span className="text-neutral-800">{member.id}</span>
+                </h4>
+                <p className="text-xl md:text-2xl font-medium text-neutral-800">{member.role}</p>
+              </motion.div>
+            ))}
+          </div>
 
-          <div className="w-24 h-px bg-primary/10" />
+          {/* Brand Elements */}
+          <div className="flex flex-col items-center gap-12 mb-20 border-t border-neutral-200 pt-20">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-all duration-700"
+            >
+              <div className="w-12 h-12 relative overflow-hidden rounded-xl bg-primary-light/20 p-0.5">
+                <Image src={LogoImg} alt="Slow Sip Logo" fill className="object-cover rounded-xl" />
+              </div>
+              <span className="font-bold tracking-[0.6em] text-sm text-primary">SLOW SIP</span>
+            </motion.div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 text-[9px] font-bold text-neutral-400 uppercase tracking-[0.4em]">
-            <p>© 2026 Slow Sip Soju. Crafted for Excellence.</p>
+            <p className="text-xl font-serif italic text-muted max-w-2xl">
+              "ดื่มด่ำกับรสชาติ ละเมียดละไมกับช่วงเวลา ทุกการจิบคือความทรงจำที่ยืนยาว"
+            </p>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 text-[11px] font-bold text-neutral-400 uppercase tracking-[0.4em]">
+            <p>© 2026 SLOW SIP SOJU Startup Project | Group A09</p>
             <p className="text-red-400/60">Drink Responsibly. 21+</p>
           </div>
         </div>
