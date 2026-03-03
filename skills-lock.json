@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "spline-3d-integration": {
+      "source": "fawaz-i/spline-3d-integration",
+      "sourceType": "github",
+      "computedHash": "7db6fd6ce9ae122c6b389b5dc6d12f19d555912fc4f78897aabec1d5b8fdc308"
+    }
+  }
+}
